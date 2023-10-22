@@ -13,6 +13,6 @@ export const defaultTheme = {
   
   'base-post': '#112131',
   'base-profile': '#0B1B2B',
-  'base-background': '#071422'
-
+  'base-content': '#071422',
+  'base-background': '#040F1A'
 } as const
