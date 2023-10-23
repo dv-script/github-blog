@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ProfileCardContainer = styled.div`
@@ -9,12 +10,19 @@ export const ProfileCardContainer = styled.div`
     padding: 2rem 2.5rem;
     border-radius: 10px;
     background-color: ${({ theme }) => theme["base-profile"]};
-    margin-top: -84px;    
+    margin-top: -86px; ;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1rem;
+    }
 `;
 
 export const ProfileCardImageContainer = styled.div`
-    width: 9.25rem;
-    height: 9.25rem;
+    width: 148px;
+    height: 148px;
     border-radius: 8px;
     overflow: hidden;
 `;
@@ -50,8 +58,12 @@ export const ProfileCardBio = styled.p`
 
 export const ProfileCardWrapper = styled.div`
     width: fit-content;
-    display: inline-flex;
+    display: flex;
     gap: 1.5rem;
+
+    @media screen and (max-width: 768px) {
+       flex-direction: column;
+    }
 `;
 
 export const ProfileCardInfoContainer = styled.div`
@@ -63,4 +75,37 @@ export const ProfileCardInfoContainer = styled.div`
 
 export const ProfileCardInfo = styled.span`
     color: ${({ theme }) => theme["base-subtitle"]};
+    white-space: nowrap;
+`;
+
+export const ProfileCardLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    color: ${({ theme }) => theme["blue"]};
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75rem;
+    position: absolute;
+    right: 2rem;
+    top: 2.25rem;
+    
+    &:hover {
+        &:after {
+            content: "";
+            width: 100%;
+            height: 1.5px;
+            border-radius: 10px;
+            background-color: ${({ theme }) => theme["blue"]};
+            position: absolute;
+            bottom: -2px;
+            left: 0;            
+        }
+    }
+
+    @media screen and (max-width: 475px){
+        top: 1rem;
+    }
 `;

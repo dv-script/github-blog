@@ -1,37 +1,50 @@
 import * as S from './styles'
-import { GithubLogo, Users, Buildings } from '@phosphor-icons/react';
+import { GithubLogo, Users, Buildings, ArrowSquareOut } from '@phosphor-icons/react';
 
-export function ProfileCard() {
+interface ProfileCardProps {
+    username: string
+    avatarUrl: string
+    htmlUrl: string
+    name: string
+    bio: string
+    company: string
+    followers: number
+}
+
+export function ProfileCard({ username, avatarUrl, name, bio, company, followers, htmlUrl }: ProfileCardProps) {
     return (
         <S.ProfileCardContainer>
-            
+
             <S.ProfileCardImageContainer>
-                <S.ProfileCardImage />
+                <S.ProfileCardImage src={avatarUrl} alt={name + 'image'} />
             </S.ProfileCardImageContainer>
 
             <S.ProfileCardContent>
                 <S.ProfileCardTextContainer>
-                    <S.ProfileCardName>Davi Hasson Castro</S.ProfileCardName>
-                    <S.ProfileCardBio>ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</S.ProfileCardBio>
+                    <S.ProfileCardName>{name}</S.ProfileCardName>
+                    <S.ProfileCardBio>{bio}</S.ProfileCardBio>
                 </S.ProfileCardTextContainer>
 
                 <S.ProfileCardWrapper>
                     <S.ProfileCardInfoContainer>
                         <GithubLogo />
-                        <S.ProfileCardInfo>dv-script</S.ProfileCardInfo>
+                        <S.ProfileCardInfo>{username}</S.ProfileCardInfo>
                     </S.ProfileCardInfoContainer>
 
                     <S.ProfileCardInfoContainer>
-                        <Buildings weight='fill'/>
-                        <S.ProfileCardInfo>Rocketseat</S.ProfileCardInfo>
+                        <Buildings weight='fill' />
+                        <S.ProfileCardInfo>{company === null ? 'Nenhuma empresa' : company}
+                        </S.ProfileCardInfo>
                     </S.ProfileCardInfoContainer>
 
                     <S.ProfileCardInfoContainer>
-                        <Users weight='fill'/>
-                        <S.ProfileCardInfo>32 seguidores</S.ProfileCardInfo>
+                        <Users weight='fill' />
+                        <S.ProfileCardInfo>{followers} seguidores</S.ProfileCardInfo>
                     </S.ProfileCardInfoContainer>
                 </S.ProfileCardWrapper>
             </S.ProfileCardContent>
+
+            <S.ProfileCardLink to={htmlUrl}>Github <ArrowSquareOut weight='bold' /></S.ProfileCardLink>
 
         </S.ProfileCardContainer>
     )
