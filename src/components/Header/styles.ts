@@ -9,4 +9,6 @@ export const HeaderContainer = styled.div`
 
 export const CoverImage = styled.img`
     width: 100%;
+    height: 270px;
+    object-fit: cover;
 `;
