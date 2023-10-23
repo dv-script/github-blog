@@ -82,7 +82,6 @@ export const ProfileCardLink = styled(Link)`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
     color: ${({ theme }) => theme["blue"]};
     text-decoration: none;
     text-transform: uppercase;
@@ -92,16 +91,19 @@ export const ProfileCardLink = styled(Link)`
     right: 2rem;
     top: 2.25rem;
     
+    &:after{
+        content: "";
+        width: 0;
+        height: 1.5px;
+        background-color: ${({ theme }) => theme["blue"]};
+        position: absolute;
+        bottom: -2px;
+        transition: 0.2s;
+    }
+    
     &:hover {
         &:after {
-            content: "";
-            width: 100%;
-            height: 1.5px;
-            border-radius: 10px;
-            background-color: ${({ theme }) => theme["blue"]};
-            position: absolute;
-            bottom: -2px;
-            left: 0;            
+            width: 100%;       
         }
     }
 
