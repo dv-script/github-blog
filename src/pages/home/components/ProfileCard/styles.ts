@@ -6,21 +6,10 @@ export const ProfileCardContainer = styled.div`
     display: flex;
     gap: 2rem;
     justify-content: center;
-    align-items: center;
     padding: 2rem 2.5rem;
     border-radius: 10px;
     background-color: ${({ theme }) => theme["base-profile"]};
-    margin-top: -84px;
-
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-
-        &:last-child {
-            gap: 1.5rem;
-        }
-    }
+    margin-top: -84px;    
 `;
 
 export const ProfileCardImageContainer = styled.div`
@@ -36,6 +25,19 @@ export const ProfileCardImage = styled.img`
     object-fit: cover;
 `;
 
+export const ProfileCardContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+`;
+
+export const ProfileCardTextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`;
+
 export const ProfileCardName = styled.h1`
     font-size: 1.5rem;
     font-weight: bold;
@@ -47,8 +49,8 @@ export const ProfileCardBio = styled.p`
 `;
 
 export const ProfileCardWrapper = styled.div`
-    width: min-content;
-    display: flex;
+    width: fit-content;
+    display: inline-flex;
     gap: 1.5rem;
 `;
 
