@@ -3,6 +3,7 @@ import { instance } from "../../lib/axios";
 import * as S from "./styles";
 
 import { ProfileCard } from "./components/ProfileCard";
+import { SearchPost } from "./components/SearchPost";
 
 interface IProfile {
   login: string
@@ -39,6 +40,7 @@ export function Home() {
         followers={profile.followers}
         htmlUrl={profile.html_url}
       />
+      <SearchPost />
     </S.Container>
   );
 }
