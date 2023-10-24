@@ -12,6 +12,7 @@ export const ProfileCardContainer = styled.div`
     background-color: ${({ theme }) => theme["base-profile"]};
     margin-top: -86px; ;
     overflow: hidden;
+    max-width: 800px;
 
     @media (max-width: 768px) {
         flex-direction: column;
