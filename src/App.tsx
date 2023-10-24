@@ -4,14 +4,17 @@ import { GlobalStyle } from './styles/global';
 
 import { BrowserRouter } from "react-router-dom";
 import { Router } from './router';
+import { PostsProvider } from './context/PostsContext';
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <PostsProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </PostsProvider>
     </ThemeProvider>
   )
 }
