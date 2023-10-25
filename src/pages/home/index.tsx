@@ -4,6 +4,7 @@ import * as S from "./styles";
 
 import { ProfileCard } from "./components/ProfileCard";
 import { SearchPost } from "./components/SearchPost";
+import { PostList } from "./components/PostList";
 
 interface IProfile {
   login: string
@@ -41,6 +42,7 @@ export function Home() {
         htmlUrl={profile.html_url}
       />
       <SearchPost />
+      <PostList />
     </S.Container>
   );
 }
