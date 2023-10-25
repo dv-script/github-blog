@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const PostCardContainer = styled.div`
+export const PostCardContainer = styled(Link)`
     max-height: 280px;
     overflow: hidden;
     background-color: ${({ theme }) => theme["base-post"]};
@@ -9,6 +10,7 @@ export const PostCardContainer = styled.div`
     gap: 1.25rem;
     padding: 2rem;
     border-radius: 10px;
+    text-decoration: none;
     cursor: pointer;
 `;
 

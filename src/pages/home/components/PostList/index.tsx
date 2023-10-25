@@ -15,9 +15,12 @@ export function PostList() {
                 posts.items.map(post => (
                     <PostCard
                         key={post.id}
+                        id={post.number as number}
                         title={post.title}
                         body={post.body}
                         date={post.created_at}
+                        comments={post.comments}
+                        author={post.user.login}
                     />
                 ))
             )}

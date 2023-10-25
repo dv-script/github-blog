@@ -1,12 +1,31 @@
+import { useContext } from 'react';
+import { PostsContext } from '../../../../context/PostsContext';
+
 import { formatDate } from '../../../../utils/formatDate';
 import * as S from './styles';
 import { PostCardProps } from './types';
+
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-export function PostCard({ title, body, date }: PostCardProps) {
+export function PostCard({ title, body, date, id, comments, author }: PostCardProps) {
+
+    const { setSelectedPost } = useContext(PostsContext);
+
+    function handleSelectedPost() {
+        setSelectedPost({
+            title,
+            body,
+            date,
+            id,
+            comments,
+            author
+        }
+        );
+    }
+
     return (
-        <S.PostCardContainer>
+        <S.PostCardContainer onClick={handleSelectedPost} to={`/post/${id}`}>
 
             <S.PostCardHeader>
                 <S.PostCardTitle>{title}</S.PostCardTitle>
@@ -14,7 +33,7 @@ export function PostCard({ title, body, date }: PostCardProps) {
             </S.PostCardHeader>
 
             <S.PostCardContent>
-                <Markdown rehypePlugins={[remarkGfm]}>{body}</Markdown>
+                <Markdown disallowedElements={["a"]} rehypePlugins={[remarkGfm]}>{body}</Markdown>
             </S.PostCardContent>
 
         </S.PostCardContainer>
