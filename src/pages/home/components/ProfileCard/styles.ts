@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const ProfileCardContainer = styled.div`
     position: relative;
-    width: 100%;
     display: flex;
     gap: 2rem;
     justify-content: center;
