@@ -21,7 +21,10 @@ export function ProfileCard({ username, avatarUrl, name, bio, company, followers
 
             <S.ProfileCardContent>
                 <S.ProfileCardTextContainer>
-                    <S.ProfileCardName>{name}</S.ProfileCardName>
+                    <S.ProfileCardHeader>
+                        <S.ProfileCardName>{name}</S.ProfileCardName>
+                        <S.ProfileCardLink to={htmlUrl}>Github <ArrowSquareOut weight='bold' /></S.ProfileCardLink>
+                    </S.ProfileCardHeader>
                     <S.ProfileCardBio>{bio}</S.ProfileCardBio>
                 </S.ProfileCardTextContainer>
 
@@ -43,8 +46,6 @@ export function ProfileCard({ username, avatarUrl, name, bio, company, followers
                     </S.ProfileCardInfoContainer>
                 </S.ProfileCardWrapper>
             </S.ProfileCardContent>
-
-            <S.ProfileCardLink to={htmlUrl}>Github <ArrowSquareOut weight='bold' /></S.ProfileCardLink>
 
         </S.ProfileCardContainer>
     )

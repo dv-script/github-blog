@@ -10,7 +10,7 @@ export const ProfileCardContainer = styled.div`
     padding: 2rem 2.5rem;
     border-radius: 10px;
     background-color: ${({ theme }) => theme["base-profile"]};
-    margin-top: -86px; ;
+    margin-top: -86px;
     overflow: hidden;
     max-width: 800px;
 
@@ -44,6 +44,13 @@ export const ProfileCardContent = styled.div`
 export const ProfileCardTextContainer = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+`;
+
+export const ProfileCardHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 0.5rem;
 `;
 
@@ -88,9 +95,7 @@ export const ProfileCardLink = styled(Link)`
     text-transform: uppercase;
     font-weight: bold;
     font-size: 0.75rem;
-    position: absolute;
-    right: 2rem;
-    top: 2.25rem;
+    position: relative;
     
     &:after{
         content: "";
@@ -108,7 +113,5 @@ export const ProfileCardLink = styled(Link)`
         }
     }
 
-    @media screen and (max-width: 475px){
-        top: 1rem;
-    }
+   
 `;
