@@ -5,11 +5,13 @@ import * as S from "./styles";
 
 export function SearchPost() {
 
-    const { search, setSearch, getPosts, posts } = useContext(PostsContext);
+    const { search, setSearch, getPosts, posts, setProcessing, setPosts } = useContext(PostsContext);
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        getPosts();
+        const postsSearched = await getPosts();
+        setProcessing(false);
+        setPosts(postsSearched);
     }
 
     return (
@@ -18,7 +20,7 @@ export function SearchPost() {
                 <S.SearchPostTitle>Procurar post</S.SearchPostTitle>
                 <S.SearchPostResults>{
                     posts.total_count > 0
-                    ? `${posts.total_count} publicações`
+                    ? `${posts.total_count} publicação${posts.total_count > 1 ? 'ões' : ''}`
                     : `Nenhuma publicação encontrada`
                 }
                 </S.SearchPostResults>

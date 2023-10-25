@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useState } from 'react';
 import { instance } from '../lib/axios';
-import { pathRegex } from '../utils/pathRegex';
 
 interface Post {
     id: number
@@ -16,10 +15,13 @@ interface Posts {
 }
 
 interface PostsContextType {
-    posts: Posts 
+    processing: boolean
+    setProcessing: React.Dispatch<React.SetStateAction<boolean>>
+    posts: Posts
+    setPosts: React.Dispatch<React.SetStateAction<Posts>>
     search: string
-    setSearch: (search: string) => void
-    getPosts: () => Promise<void>
+    setSearch: React.Dispatch<React.SetStateAction<string>>
+    getPosts: () => Promise<Posts>
 }
 
 interface PostsProviderProps {
@@ -30,19 +32,20 @@ export const PostsContext = createContext<PostsContextType>({} as PostsContextTy
 
 export function PostsProvider({ children }: PostsProviderProps) {
 
+    const [processing, setProcessing] = useState(true);
     const [search, setSearch] = useState('');
     const [posts, setPosts] = useState<Posts>({} as Posts);
 
     async function getPosts() {
-        const convertSearchToPath = pathRegex(search);
-        const response = await instance.get(`/search/issues?q=${convertSearchToPath}+repo:dv-script/github-blog`);
-        const fetchedPosts = response.data;       
-        setPosts(fetchedPosts);
+        const response = await instance.get(`/search/issues?q=${search}+repo:dv-script/github-blog`);
+        const fetchedPosts = response.data;
+
+        return fetchedPosts;
     }
 
     return (
         <PostsContext.Provider
-            value={{ posts, search, setSearch, getPosts }}
+            value={{ posts, setPosts, search, setSearch, getPosts, processing, setProcessing }}
         >
             {children}
         </PostsContext.Provider>
