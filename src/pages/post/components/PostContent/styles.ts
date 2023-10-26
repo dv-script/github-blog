@@ -44,4 +44,10 @@ export const PostContentContainer = styled.div`
     font-weight: bold;
   }
 
+  code {
+    background-color: ${({ theme }) => theme["base-post"]};
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
 `;
