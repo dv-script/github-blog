@@ -2,6 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from 'react';
 import { instance } from '../lib/axios';
 
 interface Post {
+    url: any;
     comments: number
     user: {
         login: string
@@ -25,6 +26,7 @@ interface SelectedPost {
     id: number
     comments: number
     author: string
+    url: string
 }
 
 interface PostsContextType {
