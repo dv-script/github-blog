@@ -12,11 +12,11 @@ export function PostHeader() {
     return (
         <S.PostHeaderContainer>
             <S.PostHeaderButtonContainer>
-                <S.PostHeaderBackButton to={""}>
+                <S.PostHeaderBackButton to={"../"}>
                     <CaretLeft weight='bold' />
                     Voltar
                 </S.PostHeaderBackButton>
-                <S.PostHeaderGithubButton to={""}>
+                <S.PostHeaderGithubButton to={selectedPost.url}>
                     Ver no Github
                     <ArrowSquareOut weight='bold' />
                 </S.PostHeaderGithubButton>
