@@ -5,5 +5,5 @@ export interface PostCardProps {
     date: string
     comments: number
     author: string
-    url: string
+    html_url: string
 }

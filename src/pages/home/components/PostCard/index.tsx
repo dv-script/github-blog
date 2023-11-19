@@ -8,7 +8,7 @@ import { PostCardProps } from './types';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-export function PostCard({ title, body, date, id, comments, author, url }: PostCardProps) {
+export function PostCard({ title, body, date, id, comments, author, html_url }: PostCardProps) {
 
     const { setSelectedPost } = useContext(PostsContext);
 
@@ -20,7 +20,7 @@ export function PostCard({ title, body, date, id, comments, author, url }: PostC
             id,
             comments,
             author, 
-            url
+            html_url
         }
         );
     }

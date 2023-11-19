@@ -21,7 +21,7 @@ export function PostList() {
                         date={post.created_at}
                         comments={post.comments}
                         author={post.user.login}
-                        url={post.url}
+                        html_url={post.html_url}
                     />
                 ))
             )}

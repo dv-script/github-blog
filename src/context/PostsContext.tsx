@@ -2,7 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from 'react';
 import { instance } from '../lib/axios';
 
 interface Post {
-    url: any;
+    url: string
     comments: number
     user: {
         login: string
@@ -12,6 +12,7 @@ interface Post {
     title: string
     body: string
     created_at: string
+    html_url: string
 }
 
 interface Posts {
@@ -26,7 +27,7 @@ interface SelectedPost {
     id: number
     comments: number
     author: string
-    url: string
+    html_url: string
 }
 
 interface PostsContextType {
@@ -52,12 +53,11 @@ export function PostsProvider({ children }: PostsProviderProps) {
     const [processing, setProcessing] = useState(true);
     const [search, setSearch] = useState('');
     const [posts, setPosts] = useState<Posts>({} as Posts);
-    const [selectedPost, setSelectedPost] = useState<SelectedPost>({} as SelectedPost);
+    const [selectedPost, setSelectedPost] = useState({} as SelectedPost);
 
     async function getPosts() {
         const response = await instance.get(`/search/issues?q=${search}+repo:dv-script/github-blog`);
         const fetchedPosts = response.data;
-
         return fetchedPosts;
     }
 

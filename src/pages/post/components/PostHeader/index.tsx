@@ -8,6 +8,8 @@ import { formatDate } from './../../../../utils/formatDate';
 export function PostHeader() {
 
     const { selectedPost } = useContext(PostsContext);
+    console.log(selectedPost);
+    
 
     return (
         <S.PostHeaderContainer>
@@ -16,7 +18,7 @@ export function PostHeader() {
                     <CaretLeft weight='bold' />
                     Voltar
                 </S.PostHeaderBackButton>
-                <S.PostHeaderGithubButton to={selectedPost.url}>
+                <S.PostHeaderGithubButton to={selectedPost.html_url}>
                     Ver no Github
                     <ArrowSquareOut weight='bold' />
                 </S.PostHeaderGithubButton>
